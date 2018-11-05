@@ -1,21 +1,17 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import { TimelineRoutingModule } from './timeline-routing.module';
-import { NewPostComponent } from './new-post/new-post.component';
-import { PostComponent } from './post/post.component';
 import { TimelineComponent } from './timeline.component';
 import { TimelineService } from './timeline.service';
+import { PostsModule } from '../posts/posts.module';
 
 @NgModule({
   declarations: [
-    TimelineComponent,
-    NewPostComponent,
-    PostComponent
+    TimelineComponent
   ],
   imports: [
     CommonModule,
-    TimelineRoutingModule
+    PostsModule
   ],
   providers: [
     TimelineService
