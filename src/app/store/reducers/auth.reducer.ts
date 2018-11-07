@@ -18,7 +18,7 @@ const initialState: AuthState = {
     loading: false
 };
 
-export default function PostReducer(state: AuthState = initialState, action: AuthActionTypes): AuthState {
+export default function AuthReducer(state: AuthState = initialState, action: AuthActionTypes): AuthState {
     switch (action.type) {
         case 'LOGIN':
             state = {

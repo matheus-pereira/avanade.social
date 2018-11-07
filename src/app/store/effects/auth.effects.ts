@@ -9,7 +9,7 @@ import { AuthState } from '../reducers/auth.reducer';
 
 
 @Injectable()
-export class PostEffects {
+export class AuthEffects {
 
   constructor(
     private actions$: Actions,
