@@ -1,6 +1,6 @@
 <form id="form-signin" #form="ngForm">
   <h1 class="form-title">Login</h1>
-  <div *ngIf="error$ | async" class="alert alert-danger">{{ error$ | async }}</div>
+  <div class="alert alert-danger"></div>
   <div class="form-group">
     <label for="email">E-mail:</label>
     <input class="form-control" type="email" name="email" id="email" [(ngModel)]="user.email" minlength="5" #email="ngModel"

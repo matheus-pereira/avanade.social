@@ -1,10 +1,10 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
-import { AuthGuard } from './core/guards/auth.guard';
-import { FeedComponent } from './feed/feed/feed.component';
 import { NotFoundComponent } from './core/not-found/not-found.component';
-import { PostComponent } from './feed/post/post.component';
+import { AuthGuard } from './core/auth/auth.guard';
+import { FeedComponent } from './feed/feed.component';
+import { ProfileComponent } from './profile/profile.component';
 
 const routes: Routes = [
   {
@@ -18,13 +18,18 @@ const routes: Routes = [
     component: FeedComponent
   },
   {
-    path: 'feed/:post',
+    path: 'profile',
     canActivate: [AuthGuard],
-    component: PostComponent
+    component: ProfileComponent
   },
   {
-    path: 'auth',
-    loadChildren: './auth/auth.module#AuthModule'
+    path: 'user/:id',
+    canActivate: [AuthGuard],
+    component: ProfileComponent
+  },
+  {
+    path: 'home',
+    loadChildren: './home/home.module#HomeModule'
   },
   {
     path: '**',

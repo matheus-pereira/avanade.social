@@ -4,13 +4,13 @@ import { SigninComponent } from './signin/signin.component';
 import { SignupComponent } from './signup/signup.component';
 
 const routes: Routes = [
+  // {
+  //   path: '',
+  //   pathMatch: 'full',
+  //   redirectTo: 'signin'
+  // },
   {
     path: '',
-    pathMatch: 'full',
-    redirectTo: 'signin'
-  },
-  {
-    path: 'signin',
     component: SigninComponent
   },
   {
@@ -23,4 +23,4 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
 })
-export class AuthRoutingModule { }
+export class HomeRoutingModule { }
