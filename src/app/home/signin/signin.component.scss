@@ -1,0 +1,48 @@
+
+@import '~src/styles.scss'; 
+/**
+
+//Login
+
+**/
+
+#form-signin{
+    width: 100%;
+    max-width: 330px;
+    padding: 15px;
+    margin: auto;
+}
+
+#form-signin .form-title{
+    text-align: center;
+}
+
+.form-group{
+    @extend .form-group;
+}
+// Forçando classe de Bootstrap a sempre exibir mensagem de erro (exibição será controlada pelo Angular)
+.invalid-feedback{
+    @extend .invalid-feedback;
+    display:block;
+}
+
+.ng-touched.ng-invalid{
+    @extend .is-invalid;
+}
+
+.ng-touched.ng-valid{
+    @extend .is-valid;
+}
+
+#form-signin .form-submit{
+    @extend .btn;
+    @extend .btn-block;
+}
+
+#form-signin .form-submit:not(:disabled) {
+    @extend .btn-primary;
+}
+
+#form-signin .form-submit:disabled {
+  cursor: no-drop;
+}
