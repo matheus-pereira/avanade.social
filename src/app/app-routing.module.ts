@@ -1,8 +1,10 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { AuthGuard } from './core/auth/auth.guard';
+
+import { AuthGuard } from './core/guards/auth.guard';
+import { FeedComponent } from './feed/feed/feed.component';
 import { NotFoundComponent } from './core/not-found/not-found.component';
-import { TimelineComponent } from './timeline/timeline.component';
+import { PostComponent } from './feed/post/post.component';
 
 const routes: Routes = [
   {
@@ -13,11 +15,16 @@ const routes: Routes = [
   {
     path: 'feed',
     canActivate: [AuthGuard],
-    component: TimelineComponent
+    component: FeedComponent
   },
   {
-    path: 'home',
-    loadChildren: './home/home.module#HomeModule'
+    path: 'feed/:post',
+    canActivate: [AuthGuard],
+    component: PostComponent
+  },
+  {
+    path: 'auth',
+    loadChildren: './auth/auth.module#AuthModule'
   },
   {
     path: '**',

@@ -7,6 +7,10 @@ const routes: Routes = [
   {
     path: '',
     pathMatch: 'full',
+    redirectTo: 'signin'
+  },
+  {
+    path: 'signin',
     component: SigninComponent
   },
   {
@@ -19,4 +23,4 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
 })
-export class HomeRoutingModule { }
+export class AuthRoutingModule { }

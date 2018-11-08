@@ -7,8 +7,8 @@ import { EffectsModule } from '@ngrx/effects';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CoreModule } from './core/core.module';
+import { FeedModule } from './feed/feed.module';
 
-import { TimelineModule } from './timeline/timeline.module';
 import PostReducer from './store/reducers/post.reducer';
 import { PostEffects } from './store/effects/post.effect';
 import AuthReducer from './store/reducers/auth.reducer';
@@ -30,7 +30,7 @@ import { AuthEffects } from './store/effects/auth.effects';
       PostEffects
     ]),
     CoreModule,
-    TimelineModule,
+    FeedModule,
     AppRoutingModule
   ],
   providers: [],
