@@ -9,18 +9,13 @@ $browser-context: 15;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    height: 55px;
+    height: 60px;
     padding: 0 20px;
     box-shadow: 0px 1px 6px 0px #ccc;
     position: fixed;
     top: 0;
     width: 100%;
     z-index: 999;
-
-    &__logo img {
-        width: 100px;
-        height: 55px;
-    }
 
     .menu {
         display: flex;
@@ -45,4 +40,24 @@ $browser-context: 15;
             }
         }
     }
+}
+
+@media screen and (max-width: 425px) {
+    .menu {
+        font-size: em(11);
+        &__profile {
+            img {
+                display: none;
+            }
+        }
+    }
+
+    .nav {
+        padding: 0 10px;
+        &__logo img {
+            width: 90px;
+        }
+
+    }
+
 }
