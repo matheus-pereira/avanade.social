@@ -8,6 +8,7 @@ import { CoreModule } from './core/core.module';
 import { FeedModule } from './feed/feed.module';
 
 import { ProfileModule } from './profile/profile.module';
+import { PostsModule } from './posts/posts.module';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { ProfileModule } from './profile/profile.module';
     CoreModule,
     FeedModule,
     ProfileModule,
-    AppRoutingModule
+    AppRoutingModule,
+    PostsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,0 +1,63 @@
+$browser-context: 15;
+
+@function em($pixels, $context: $browser-context) {
+    @return #{$pixels/$context}em;
+}
+
+.nav {
+    background: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 60px;
+    padding: 0 20px;
+    box-shadow: 0px 1px 6px 0px #ccc;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 999;
+
+    .menu {
+        display: flex;
+        align-items: baseline;
+        font-size: em(13);
+
+        span.separator {
+            margin: 0 12px;
+        }
+
+        a {
+            color: #444;
+        }
+
+        &__profile {
+            margin-right: 12px;
+
+            img {
+                width: 2.5rem;
+                height: 2.5rem;
+                border-radius: 100px;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 425px) {
+    .menu {
+        font-size: em(11);
+        &__profile {
+            img {
+                display: none;
+            }
+        }
+    }
+    
+    .nav {
+        padding: 0 10px;
+        &__logo img {
+            width: 90px;
+        }
+
+    }
+
+}
