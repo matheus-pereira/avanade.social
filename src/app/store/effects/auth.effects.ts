@@ -4,7 +4,7 @@ import { Observable, of } from 'rxjs';
 import { switchMap, map, tap, catchError } from 'rxjs/operators';
 
 import { AuthService } from '../services/auth.service';
-import { SetUserAction, LoginAction, LoginErrorAction } from '../actions/auth.actions';
+import { LoginAction, LoginErrorAction, LoginSuccessAction } from '../actions/auth.actions';
 import { AuthState } from '../reducers/auth.reducer';
 import { Router } from '@angular/router';
 
@@ -18,16 +18,6 @@ export class AuthEffects {
     private router: Router
   ) { }
 
-  // @Effect() login(): Observable<SetUserAction> {
-  //   return this.actions$
-  //     .ofType('LOGIN')
-  //     .pipe(
-  //       switchMap((action: LoginAction) => {
-  //         return this.authService.login(action.payload.email, action.payload.email)
-  //           .pipe(map((user: AuthState) => new SetUserAction(user)))
-  //       })
-  //     );
-  // }
   @Effect() login(): Observable<any> {
     return this.actions$
       .ofType('LOGIN')
@@ -35,28 +25,25 @@ export class AuthEffects {
         switchMap((action: LoginAction) => {
           return this.authService.login(action.payload.email, action.payload.email)
             .pipe(
-              map((user: AuthState) => new SetUserAction(user)),
-              catchError(error => of(new LoginErrorAction({ error })))
+              map((user: AuthState) => new LoginSuccessAction(user)),
+              catchError(error => of(new LoginErrorAction(error)))
             )
         })
       );
   }
 
-  @Effect() loginSuccess(): Observable<any> {
-    return this.actions$
-      .ofType('LOGIN_SUCCESS')
-      .pipe(
-        tap((user) => {
-          localStorage.setItem('token', user.payload.token),
-            this.router.navigateByUrl('/')
-        })
-      );
-  }
-  @Effect({ dispatch: false }) loginError(): Observable<any> {
+  // @Effect() loginSuccess(): Observable<any> {
+  //   return this.actions$
+  //     .ofType('LOGIN_SUCCESS')
+  //     .pipe(
+  //       tap((user) => {
+  //         localStorage.setItem('token', user.payload.token),
+  //           this.router.navigateByUrl('/')
+  //       })
+  //     );
+  // }
+  @Effect() loginError(): Observable<any> {
     return this.actions$
       .ofType('LOGIN_ERROR')
-      .pipe(
-        // map(() => )
-      );
   }
 }

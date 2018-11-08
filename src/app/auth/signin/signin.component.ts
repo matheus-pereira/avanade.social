@@ -22,7 +22,8 @@ export class SigninComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.error$ = this.store.select('auth').pipe(pluck('errorMessage'));
+    this.error$ = this.store.select('auth').pipe(pluck('error'));
+    console.log('erroStore:', this.error$)
   }
 
   userSignIn() {
