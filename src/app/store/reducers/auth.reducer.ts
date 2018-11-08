@@ -1,21 +1,15 @@
 import { AuthActionTypes } from "../actions/auth.actions";
 
 export interface AuthState {
-    user: {
-        id: string,
-        name: string,
-        email: string
-    };
     token: string;
-    expiration: number;
-    loading: boolean;
+    expires_in: number;
+    error: string;
 }
 
 const initialState: AuthState = {
-    user: null,
     token: null,
-    expiration: null,
-    loading: false
+    expires_in: null,
+    error: null
 };
 
 export default function AuthReducer(state: AuthState = initialState, action: AuthActionTypes): AuthState {
@@ -23,14 +17,19 @@ export default function AuthReducer(state: AuthState = initialState, action: Aut
         case 'LOGIN':
             state = {
                 ...state,
-                loading: true
+                ...action.payload
             };
             break;
-        case 'SET_USER':
+        case 'LOGIN_SUCCESS':
             state = {
                 ...state,
-                ...action.payload,
-                loading: false
+                ...action.payload
+            };
+            break;
+        case 'LOGIN_ERROR':
+            state = {
+                ...state,
+                error: 'Usuáio ou senha incorretos. Por favor tente novamente.'
             };
             break;
     }

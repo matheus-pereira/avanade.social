@@ -10,12 +10,23 @@ export class LoginAction implements Action {
         }
     ) { }
 }
-
-export class SetUserAction implements Action {
-    readonly type = 'SET_USER';
+export class LoginSuccessAction implements Action {
+    readonly type = 'LOGIN_SUCCESS';
     constructor(
         public payload: AuthState
     ) { }
 }
+export class LoginErrorAction implements Action {
+    readonly type = 'LOGIN_ERROR';
+    constructor(
+        public payload: any
+    ) { }
 
-export type AuthActionTypes = LoginAction | SetUserAction;
+}
+export class LogoutAction implements Action {
+    readonly type = 'LOGOUT';
+    constructor(
+        public payload: any
+    ) { }
+}
+export type AuthActionTypes = LoginAction | LoginSuccessAction | LoginErrorAction;
