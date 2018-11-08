@@ -8,14 +8,14 @@ export interface AuthState {
     };
     token: string;
     expiration: number;
-    loading: boolean;
+    errorMessage: string;
 }
 
 const initialState: AuthState = {
     user: null,
     token: null,
     expiration: null,
-    loading: false
+    errorMessage: null
 };
 
 export default function AuthReducer(state: AuthState = initialState, action: AuthActionTypes): AuthState {
@@ -23,14 +23,18 @@ export default function AuthReducer(state: AuthState = initialState, action: Aut
         case 'LOGIN':
             state = {
                 ...state,
-                loading: true
+                ...action.payload
             };
             break;
         case 'SET_USER':
             state = {
+                ...state
+            };
+            break;
+        case 'LOGIN_ERROR':
+            state = {
                 ...state,
-                ...action.payload,
-                loading: false
+                errorMessage: 'Usuário ou senha incorretos.'
             };
             break;
     }

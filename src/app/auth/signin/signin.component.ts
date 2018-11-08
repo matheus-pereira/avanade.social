@@ -1,4 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { Store } from '@ngrx/store';
+import { AuthState } from 'src/app/store/reducers/auth.reducer';
+import { LoginAction } from 'src/app/store/actions/auth.actions';
+import { Observable } from 'rxjs';
+import { pluck } from 'rxjs/operators';
 
 @Component({
   selector: 'app-signin',
@@ -10,9 +15,22 @@ export class SigninComponent implements OnInit {
     email: '',
     password: '',
   };
-  constructor() { }
+  error$: Observable<string> = null;
+
+  constructor(
+    private store: Store<AuthState>
+  ) { }
 
   ngOnInit() {
+    this.error$ = this.store.select('auth').pipe(pluck('errorMessage'));
+  }
+
+  userSignIn() {
+    const payload = {
+      email: this.user.email,
+      password: this.user.password
+    };
+    this.store.dispatch(new LoginAction(payload));
   }
 
 }

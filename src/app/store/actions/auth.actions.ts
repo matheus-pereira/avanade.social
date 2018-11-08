@@ -18,4 +18,12 @@ export class SetUserAction implements Action {
     ) { }
 }
 
-export type AuthActionTypes = LoginAction | SetUserAction;
+export class LoginErrorAction implements Action {
+    readonly type = 'LOGIN_ERROR';
+    constructor(
+        public payload: any
+    ) { }
+
+    //Inserir switch case
+}
+export type AuthActionTypes = LoginAction | SetUserAction | LoginErrorAction;
