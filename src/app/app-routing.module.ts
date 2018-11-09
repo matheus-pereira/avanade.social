@@ -6,6 +6,7 @@ import { AuthGuard } from './core/auth/auth.guard';
 import { FeedComponent } from './feed/feed.component';
 import { ProfileComponent } from './profile/profile.component';
 import { HomeGuard } from './home/home.guard';
+import { PostComponent } from './posts/post/post.component';
 
 const routes: Routes = [
   {
@@ -32,6 +33,11 @@ const routes: Routes = [
     path: 'home',
     loadChildren: './home/home.module#HomeModule',
     canActivate: [HomeGuard]
+  },
+  {
+    path: 'post/:postId',
+    canActivate: [AuthGuard],
+    component: PostComponent
   },
   {
     path: '**',
