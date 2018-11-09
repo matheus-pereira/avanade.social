@@ -1,5 +1,4 @@
-import { Component, OnInit } from '@angular/core';
-import { timingSafeEqual } from 'crypto';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'app-post',
@@ -7,6 +6,8 @@ import { timingSafeEqual } from 'crypto';
   styleUrls: ['./post.component.scss']
 })
 export class PostComponent implements OnInit {
+
+  @Input() post: Post;
 
   public liked = false;
   public likeCount = 0;

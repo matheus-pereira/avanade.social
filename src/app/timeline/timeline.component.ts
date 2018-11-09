@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { TimelineService } from './timeline.service';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-timeline',
@@ -7,7 +9,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TimelineComponent implements OnInit {
 
-  constructor() { }
+  posts$: Observable<Post[]>;
+
+  constructor(private timelineService: TimelineService) {
+    this.posts$ = this.timelineService.getPosts();
+  }
 
   ngOnInit() {
   }

@@ -1,0 +1,5 @@
+<div id="timeline">
+    <div *ngFor="let post of posts$ | async">
+        <app-post [post]="post"></app-post>
+    </div>
+</div>
