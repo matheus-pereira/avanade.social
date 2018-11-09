@@ -30,9 +30,9 @@ export class SigninComponent implements OnInit {
         },
         (error) => {
           if (error.status && error.status === 401) {
-            this.errorMessage =  'E-mail e/ou senha incorretos.';
+            this.errorMessage = 'E-mail e/ou senha incorretos.';
           } else {
-            this.errorMessage =  'Ocorreu um erro durante a requisição, tente novamente.';
+            this.errorMessage = 'Não foi possível realizar seu login. Por favor, tente novamente mais tarde.';
           }
         }
       );

@@ -1,4 +1,17 @@
-/* You can add global styles to this file, and also import other style files */
+/* 
+
+  Avanade Social
+
+  Estrutura utiliza Bootstrap em SASS, combinado com ajustes pontuais em suas variáveis.
+  Bootstrap foi utilizado com extends, permitindo futura 
+  remoção de sua biblioteca, sem que seja necessário alterar os HTMLs
+
+  Neste SCSS estão contidos os estilos globais da aplicação.
+  Cada componente possui suas próprias declarações extras, importando este arquivo como base.
+
+*/
+//Variáveis do projeto
+@import "./styles/scss/_variables";
 // @import "~bootstrap/scss/bootstrap.scss";
 @import "~bootstrap/scss/functions";
 @import "~bootstrap/scss/variables";
@@ -17,14 +30,40 @@
 @import "~bootstrap/scss/alert";
 @import url('https://fonts.googleapis.com/css?family=Ubuntu:300,300i,400,400i,500,500i,700,700i');
 
+
 * {
-    box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 body {
-    background: #eee;
+  background: #eee;
 }
 
 html * {
-    font-family: 'Ubuntu', sans-serif;
+  font-family: 'Ubuntu', sans-serif;
+}
+
+.container {
+  width: 100%;
+  height: 100%;
+  background: #eee;
+  padding: 60px 0 0 0;
+}
+
+@media screen and (min-width: 968px) {
+  .container {
+    width: 55%;
+  }
+}
+
+@media screen and (min-width: 768px) and (max-width: 968px) {
+  .container {
+    width: 65%;
+  }
+}
+
+$browser-context: 15;
+
+@function em($pixels, $context: $browser-context) {
+  @return #{$pixels/$context}em;
 }
