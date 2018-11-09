@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
+import { FeedService } from './feed.service';
 
 @Component({
   selector: 'app-feed',
@@ -7,7 +9,24 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FeedComponent implements OnInit {
 
-  constructor() { }
+  posts: Post[];
+  hasMore: boolean = true;
+
+  constructor(private feedService: FeedService) {
+    this.feedService.getPosts(5).subscribe(posts => {
+      this.posts = posts;
+    });
+  }
+
+  onScroll() {
+    if (this.posts.length == 20) {
+      this.hasMore = false;
+      return;
+    }
+    this.feedService.getPosts(5).subscribe(posts => {
+      this.posts = this.posts.concat(posts);
+    });
+  }
 
   ngOnInit() {
   }
