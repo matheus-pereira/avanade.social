@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthService } from 'src/app/core/auth/auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-signin',
@@ -8,16 +10,32 @@ import { Component, OnInit } from '@angular/core';
 export class SigninComponent implements OnInit {
   user = {
     email: '',
-    password: '',
+    password: ''
   };
+  errorMessage: string = null;
 
-  constructor() { }
+  constructor(
+    private authService: AuthService,
+    private router: Router
+  ) { }
 
   ngOnInit() {
   }
 
-  userSignIn() {
-    
+  signin() {
+    this.authService.authenticate(this.user.email, this.user.password)
+      .subscribe(
+        () => {
+          this.router.navigate(['', 'feed']);
+        },
+        (error) => {
+          if (error.status && error.status === 401) {
+            this.errorMessage =  'E-mail e/ou senha incorretos.';
+          } else {
+            this.errorMessage =  'Ocorreu um erro durante a requisição, tente novamente.';
+          }
+        }
+      );
   }
 
 }

@@ -1,6 +1,6 @@
 <form id="form-signin" #form="ngForm">
   <h1 class="form-title">Login</h1>
-  <div class="alert alert-danger"></div>
+  <div *ngIf="errorMessage" class="alert alert-danger">{{ errorMessage }}</div>
   <div class="form-group">
     <label for="email">E-mail:</label>
     <input class="form-control" type="email" name="email" id="email" [(ngModel)]="user.email" minlength="5" #email="ngModel"
@@ -20,5 +20,5 @@
       Por favor preencha sua senha.
     </span>
   </div>
-  <button class="form-submit" type="submit" [disabled]="form.invalid" (click)="userSignIn()">Entrar</button>
+  <button class="form-submit" type="submit" [disabled]="form.invalid" (click)="signin()">Entrar</button>
 </form>
