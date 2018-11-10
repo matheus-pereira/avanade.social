@@ -1,4 +1,7 @@
-@import '~src/styles.scss';
+@import 'global_imports';
+//Importando componentes do Bootstrap
+@import 'buttons';
+@import 'forms';
 /**
 
 //Login
@@ -7,9 +10,7 @@
 
 .authPage {
   display: flex;
-  align-items: center;
   justify-content: center;
-  height: 85vh;
 
   &__container {
     background-color: #fff;
