@@ -6,7 +6,7 @@
   align-items: center;
   justify-content: space-between;
   height: 60px;
-  padding: 0 ($grid-gutter-width / 3);
+  padding: 0 ($grid-gutter-width / 2);
   box-shadow: 0px 1px 6px 0px $gray-500;
   position: fixed;
   top: 0;
@@ -20,7 +20,7 @@
   .menu {
     display: flex;
     align-items: baseline;
-    font-size: em(11);
+    font-size: em(12);
 
     &__profileName {
       display: none;
@@ -30,7 +30,7 @@
       color: $primary;
       text-transform: uppercase;
       letter-spacing: 0.8px;
-      font-weight: bold;
+      font-weight: 500;
       font-size: em(14);
       margin-right: ($grid-gutter-width / 2);
     }
