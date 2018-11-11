@@ -20,7 +20,7 @@ const routes: Routes = [
     component: FeedComponent
   },
   {
-    path: 'profile',
+    path: 'profile/:id',
     canActivate: [AuthGuard],
     component: ProfileComponent
   },

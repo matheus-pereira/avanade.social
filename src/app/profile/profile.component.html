@@ -1,1 +1,14 @@
-
+<main class="profile">
+  <section class="profile__userCard">
+    <div class="profile__userImg"><img alt="{{ user.name}}" src="https://images.unsplash.com/photo-1541369497175-cd7224b96b34?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=b28e3c537df3662e86338cc274a26c35&auto=format&fit=crop&w=600&q=60" /></div>
+    <div class="profile__userDesc">
+      <p class="profile__userName">{{ user.name}}</p>
+      <p class="profile__userEmail">{{ user.email}}</p>
+    </div>
+  </section>
+  <section id="profile__postList" [infiniteScrollDisabled]="!hasMore" infiniteScroll (scrolled)="onScroll()">
+    <div *ngFor="let post of posts">
+      <app-post [post]="post"></app-post>
+    </div>
+  </section>
+</main>
