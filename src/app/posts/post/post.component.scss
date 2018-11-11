@@ -1,16 +1,17 @@
-$browser-context: 15;
-
-@function em($pixels, $context: $browser-context) {
-  @return #{$pixels/$context}em;
-}
+@import 'global_imports';
 
 #post {
-  background: #eee;
+  background: $gray-400;
 }
 
 .post {
-  background: #fff;
-  padding: 10px;
+  background: $white;
+  padding: ($grid-gutter-width / 2);
+  border-bottom: 1px solid $gray-400;
+
+  :last-of-type {
+    border-bottom: 0;
+  }
 
   &__profileImg {
     margin-right: 10px;
@@ -51,7 +52,7 @@ $browser-context: 15;
       }
 
       a:first-child::before {
-        color: #bababa;
+        color: $gray-500;
       }
     }
 
@@ -62,14 +63,12 @@ $browser-context: 15;
   }
 
   &__profileName {
-    color: #444;
     margin-left: 10px;
     margin: 0;
   }
 
   &__profileDesc {
     font-size: em(13);
-    color: #444;
     margin: 0 10px 10px 0;
   }
 
@@ -91,13 +90,13 @@ $browser-context: 15;
       margin-top: 3px;
 
       .liked path {
-        fill: #ee721a;
-        stroke: #ee721a
+        fill: $primary;
+        stroke: $primary
       }
 
       .likeCount {
         margin-left: 6px;
-        color: #bababa;
+        color: $gray-500;
         font-size: em(14);
       }
     }
