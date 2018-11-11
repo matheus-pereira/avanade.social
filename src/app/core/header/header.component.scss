@@ -26,10 +26,6 @@
       display: none;
     }
 
-    span.separator {
-      margin: 0 12px;
-    }
-
     a {
       color: $primary;
       text-transform: uppercase;
@@ -44,7 +40,7 @@
     }
 
     &__profile {
-      margin-right: ($grid-gutter-width / 2);
+      margin-right: ($grid-gutter-width / 3);
 
 
       img {
