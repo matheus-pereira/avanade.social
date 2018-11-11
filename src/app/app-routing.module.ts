@@ -4,15 +4,21 @@ import { Routes, RouterModule } from '@angular/router';
 import { NotFoundComponent } from './core/not-found/not-found.component';
 import { AuthGuard } from './core/auth/auth.guard';
 import { FeedComponent } from './feed/feed.component';
-import { ProfileComponent } from './profile/profile.component';
 import { HomeGuard } from './home/home.guard';
-import { PostComponent } from './posts/post/post.component';
+import { SigninComponent } from './home/signin/signin.component';
+import { SignupComponent } from './home/signup/signup.component';
 
 const routes: Routes = [
   {
     path: '',
     pathMatch: 'full',
-    redirectTo: 'feed'
+    component: SigninComponent,
+    canActivate: [HomeGuard]
+  },
+  {
+    path: 'signup',
+    component: SignupComponent,
+    canActivate: [HomeGuard]
   },
   {
     path: 'feed',
@@ -20,24 +26,9 @@ const routes: Routes = [
     component: FeedComponent
   },
   {
-    path: 'profile/:id',
+    path: 'profile',
     canActivate: [AuthGuard],
-    component: ProfileComponent
-  },
-  {
-    path: 'user/:id',
-    canActivate: [AuthGuard],
-    component: ProfileComponent
-  },
-  {
-    path: 'home',
-    loadChildren: './home/home.module#HomeModule',
-    canActivate: [HomeGuard]
-  },
-  {
-    path: 'post/:postId',
-    canActivate: [AuthGuard],
-    component: PostComponent
+    loadChildren: './profile/profile.module#ProfileModule'
   },
   {
     path: '**',
