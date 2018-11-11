@@ -6,9 +6,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CoreModule } from './core/core.module';
 import { FeedModule } from './feed/feed.module';
-
-import { ProfileModule } from './profile/profile.module';
 import { PostsModule } from './posts/posts.module';
+import { HomeModule } from './home/home.module';
 
 @NgModule({
   declarations: [
@@ -18,10 +17,10 @@ import { PostsModule } from './posts/posts.module';
     BrowserModule,
     HttpClientModule,
     CoreModule,
+    HomeModule,
     FeedModule,
-    ProfileModule,
-    AppRoutingModule,
-    PostsModule
+    PostsModule,
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]
