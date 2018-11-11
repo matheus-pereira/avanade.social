@@ -3,3 +3,8 @@
 @import "_global_functions",
 "_global_variables",
 "_global_mixins";
+
+//Importando variáveis, funções e mixins do Bootstrap
+@import "functions",
+"variables",
+"mixins";

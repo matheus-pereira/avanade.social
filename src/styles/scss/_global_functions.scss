@@ -1,5 +1,4 @@
-//Importando funções do Bootstrap
-@import "functions";
+//Funções do projeto
 $browser-context: 16;
 
 @function em($pixels, $context: $browser-context) {
