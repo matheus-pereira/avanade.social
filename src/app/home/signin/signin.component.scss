@@ -1,48 +1,86 @@
-
-@import '~src/styles.scss'; 
+@import 'global_imports';
+//Importando componentes do Bootstrap
+@import 'buttons';
+@import 'forms';
 /**
 
 //Login
 
 **/
 
-#form-signin{
-    width: 100%;
-    max-width: 330px;
-    padding: 15px;
-    margin: auto;
+.authPage {
+  display: flex;
+  justify-content: center;
+
+  &__container {
+    background-color: #fff;
+    width: 85%;
+    display: flex;
+    flex-direction: column;
+    //Utilizando variável de grid gutter do Bootstrap
+    padding: ($grid-gutter-width / 2);
+
+    @include media-breakpoint-up(lg) {
+      max-width: 70%;
+      padding: ($grid-gutter-width);
+    }
+  }
+
+  &__logo {
+    align-self: center;
+    max-width: 50%;
+    padding-bottom: ($grid-gutter-width / 2);
+
+    @include media-breakpoint-up(lg) {
+      max-width: 100%;
+      padding-bottom: ($grid-gutter-width);
+    }
+  }
 }
 
-#form-signin .form-title{
-    text-align: center;
-}
+.form {
+  width: 100%;
+  max-width: 450px;
+  margin: auto;
 
-.form-group{
+  &__fieldGroup {
     @extend .form-group;
-}
-// Forçando classe de Bootstrap a sempre exibir mensagem de erro (exibição será controlada pelo Angular)
-.invalid-feedback{
-    @extend .invalid-feedback;
-    display:block;
-}
+  }
 
-.ng-touched.ng-invalid{
-    @extend .is-invalid;
-}
+  &__fieldInput {
+    @extend .form-control;
+  }
 
-.ng-touched.ng-valid{
-    @extend .is-valid;
-}
-
-#form-signin .form-submit{
+  &__submit {
     @extend .btn;
-    @extend .btn-block;
-}
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 0.9em;
+    font-weight: bold;
+  }
 
-#form-signin .form-submit:not(:disabled) {
+  &__submit:not(:disabled) {
     @extend .btn-primary;
-}
+    color: $white;
 
-#form-signin .form-submit:disabled {
-  cursor: no-drop;
+  }
+
+  &__submit:disabled {
+    cursor: no-drop;
+  }
+
+  // Forçando classe de Bootstrap a sempre exibir mensagem de erro (exibição será controlada pelo Angular)
+  .invalid-feedback {
+    @extend .invalid-feedback;
+    display: block;
+  }
+
+  //Estilizando classes de controle do Angular
+  .ng-touched.ng-invalid {
+    @extend .is-invalid;
+  }
+
+  .ng-touched.ng-valid {
+    @extend .is-valid;
+  }
 }

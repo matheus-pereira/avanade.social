@@ -1,0 +1,26 @@
+//Variáveis do projeto
+
+//Sobrescrevendo classes de cores do Bootstrap
+$white: #fff !default;
+$gray-400: #eee !default;
+$gray-500: #bababa !default;
+$gray-900: #444 !default;
+$black: #000 !default;
+
+// Body
+
+$body-color: $gray-900;
+
+//Alterando a cor laranja do Bootstrap para a cor da marca
+$orange: #FF5800 !default;
+
+//Alterando a cor padrão do Bootstrap para a cor da marca
+$primary: $orange !default;
+
+// Grid columns
+
+$grid-gutter-width: 30px !default;
+
+//Font weight
+$font-weight-normal: 400;
+$btn-font-weight: $font-weight-normal !default;

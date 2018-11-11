@@ -1,5 +1,5 @@
-<div id="timeline" [infiniteScrollDisabled]="!hasMore" infiniteScroll (scrolled)="onScroll()">
-  <div *ngFor="let post of posts">
-      <app-post [post]="post"></app-post>
-  </div>
-</div>
+<main id="timeline" [infiniteScrollDisabled]="!hasMore" infiniteScroll (scrolled)="onScroll()">
+  <section *ngFor="let post of posts">
+    <app-post [post]="post"></app-post>
+  </section>
+</main>
