@@ -14,14 +14,13 @@
 
   &__container {
     background-color: #fff;
-    width: 85%;
+    width: 100%;
     display: flex;
     flex-direction: column;
     //Utilizando variável de grid gutter do Bootstrap
     padding: ($grid-gutter-width / 2);
 
     @include media-breakpoint-up(lg) {
-      max-width: 70%;
       padding: ($grid-gutter-width);
     }
   }
@@ -40,7 +39,6 @@
 
 .form {
   width: 100%;
-  max-width: 450px;
   margin: auto;
 
   &__fieldGroup {
