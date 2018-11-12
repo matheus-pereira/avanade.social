@@ -15,6 +15,10 @@ export class PostService {
     return this.http.get<Post[]>(`${API_URL}/publications`, { params: filter });
   }
 
+  createPost(text: string) {
+    return this.http.post<Post>(`${API_URL}/publications`, { text });
+  }
+
   likePost(postId: string) {
     return this.http.put<Post>(`${API_URL}/publications/${postId}/like`, {});
   }

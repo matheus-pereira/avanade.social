@@ -1,3 +1,4 @@
 <main id="timeline" [infiniteScrollDisabled]="!hasMore" infiniteScroll (scrolled)="onScroll()">
+  <app-new-post (newPost)="posts.unshift($event)"></app-new-post>
   <app-post-list [posts]="posts"></app-post-list>
 </main>

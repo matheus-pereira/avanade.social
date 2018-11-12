@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { PostService } from '../post.service';
 
 @Component({
   selector: 'app-new-post',
@@ -6,10 +7,20 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./new-post.component.scss']
 })
 export class NewPostComponent implements OnInit {
+  @Output() newPost = new EventEmitter<Post>();
+  text: string = '';
 
-  constructor() { }
+  constructor(private postService: PostService) { }
 
   ngOnInit() {
+  }
+
+  onPost() {
+    this.postService.createPost(this.text)
+      .subscribe(post => {
+        this.newPost.emit(post);
+        this.text = '';
+      });
   }
 
 }

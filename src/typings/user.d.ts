@@ -4,5 +4,6 @@ type User = {
     lastName?: string;
     fullName?: string;
     avatar?: string;
+    name?: string;
     email?: string;
 }

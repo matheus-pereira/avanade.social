@@ -1,3 +1,11 @@
-<p>
-  new-post works!
-</p>
+<div class="card">
+  <div class="card-body">
+    <form class="form" #form="ngForm">
+      <div class="form-group">
+        <label for="text">Publique algo novo</label>
+        <textarea name="text" id="text" class="form-control" rows="3" [(ngModel)]="text" required></textarea>
+      </div>
+      <button class="form__submit" type="submit" [disabled]="form.invalid" (click)="onPost()">Publicar</button>
+    </form>
+  </div>
+</div>
