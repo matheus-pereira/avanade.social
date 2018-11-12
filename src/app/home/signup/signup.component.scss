@@ -1,7 +1,4 @@
 @import 'global_imports';
-//Importando componentes do Bootstrap
-@import 'buttons';
-@import 'forms';
 /**
 
 //Cadastro
@@ -37,61 +34,6 @@
   }
 }
 
-.form {
-  width: 100%;
-  margin: auto;
-
-  &__title {
-    text-align: center;
-    font-size: em(30);
-  }
-
-  &__fieldGroup {
-    @extend .form-group;
-  }
-
-  &__fieldInput {
-    @extend .form-control;
-  }
-
-  &__submit {
-    @extend .btn;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    font-size: 0.9em;
-    font-weight: bold;
-  }
-
-  &__submit:not(:disabled) {
-    @extend .btn-primary;
-    color: $white;
-
-  }
-
-  &__submit:disabled {
-    cursor: no-drop;
-  }
-
-  // Forçando classe de Bootstrap a sempre exibir mensagem de erro (exibição será controlada pelo Angular)
-  .invalid-feedback {
-    @extend .invalid-feedback;
-    display: block;
-  }
-
-  //Estilizando classes de controle do Angular
-  .ng-touched.ng-invalid {
-    @extend .is-invalid;
-  }
-
-  .ng-touched.ng-valid {
-    @extend .is-valid;
-  }
-
-  .form__fieldGroup:last-of-type .form__fieldInput.ng-valid {
-    border: 1px solid #eee;
-  }
-
-}
 
 footer {
   display: flex;

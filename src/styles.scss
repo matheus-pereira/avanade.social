@@ -22,6 +22,8 @@
 @import "~bootstrap/scss/dropdown";
 @import "~bootstrap/scss/utilities";
 @import "~bootstrap/scss/alert";
+@import 'buttons';
+@import 'forms';
 @import url('https://fonts.googleapis.com/css?family=Ubuntu:300,300i,400,400i,500,500i,700,700i');
 
 
@@ -65,4 +67,57 @@ main {
   @include media-breakpoint-up(md) {
     margin: 80px 0 0 0;
   }
+}
+
+//Formulários
+.form {
+  width: 100%;
+  margin: auto;
+
+  &__title {
+    text-align: center;
+    font-size: em(30);
+  }
+
+  &__fieldGroup {
+    @extend .form-group;
+  }
+
+  &__fieldInput {
+    @extend .form-control;
+  }
+
+  &__submit {
+    @extend .btn;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 0.9em;
+    font-weight: bold;
+  }
+
+  &__submit:not(:disabled) {
+    @extend .btn-primary;
+    color: $white;
+
+  }
+
+  &__submit:disabled {
+    cursor: no-drop;
+  }
+
+  // Forçando classe de Bootstrap a sempre exibir mensagem de erro (exibição será controlada pelo Angular)
+  .invalid-feedback {
+    @extend .invalid-feedback;
+    display: block;
+  }
+
+  //Estilizando classes de controle do Angular
+  .ng-touched.ng-invalid[required] {
+    @extend .is-invalid;
+  }
+
+  .ng-touched.ng-valid[required] {
+    @extend .is-valid;
+  }
+
 }
