@@ -28,8 +28,9 @@ export class SigninComponent implements OnInit {
         () => {
           this.router.navigate(['', 'feed']);
         },
-        (error) => {
-          if (error.status && error.status === 401) {
+        ({error}) => {
+          console.log(error.statusCode);
+          if (error.statusCode && error.statusCode === 400 || error.statusCode === 401) {
             this.errorMessage = 'E-mail e/ou senha incorretos.';
           } else {
             this.errorMessage = 'Não foi possível realizar seu login. Por favor, tente novamente mais tarde.';
