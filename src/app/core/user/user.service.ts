@@ -1,15 +1,21 @@
 import { Injectable } from '@angular/core';
-import { TokenService } from '../token/token.service';
+import { HttpClient } from '@angular/common/http';
 import { BehaviorSubject } from 'rxjs';
 import * as jwt_decode from 'jwt-decode';
+import { TokenService } from '../token/token.service';
+import { environment } from 'src/environments/environment';
 
+const API_URL = environment.apiUrl;
 
 @Injectable({ providedIn: 'root'})
 export class UserService {
     
     private userSubject = new BehaviorSubject<User>(null);
 
-    constructor (private tokenService: TokenService) {
+    constructor (
+        private tokenService: TokenService,
+        private http: HttpClient
+    ) {
         this.tokenService.hasToken() && this.decodeAndNotify();
     }
 
@@ -20,6 +26,10 @@ export class UserService {
 
     getUser() {
         return this.userSubject.asObservable();
+    }
+
+    getUserAsync(id: string) {
+        return this.http.get<User>(`${API_URL}/users/${id}`);
     }
 
     private decodeAndNotify() {

@@ -4,17 +4,13 @@ import { FormsModule } from '@angular/forms';
 
 import { SigninComponent } from './signin/signin.component';
 import { SignupComponent } from './signup/signup.component';
-
-import { AppRoutingModule } from '../app-routing.module'
-import { RouterModule, Routes } from '@angular/router';
-
-const routes: Routes = AppRoutingModule.getRoutes();
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   imports: [
     CommonModule,
-    FormsModule,
-    RouterModule.forRoot(routes)
+    RouterModule,
+    FormsModule
   ],
   declarations: [SigninComponent, SignupComponent]
 })

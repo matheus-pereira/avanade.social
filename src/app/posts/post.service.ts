@@ -9,16 +9,10 @@ const API_URL = environment.apiUrl;
 })
 export class PostService {
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) { }
 
-  getPosts(fromDate?: string) {
-    let params:any = {};
-    
-    if (fromDate) {
-      params.fromDate = fromDate;
-    }
-
-    return this.http.get<Post[]>(`${API_URL}/publications`, { params });
+  getPosts(filter: { fromDate?: string; userId?: string; } = {}) {
+    return this.http.get<Post[]>(`${API_URL}/publications`, { params: filter });
   }
 
   likePost(postId: string) {

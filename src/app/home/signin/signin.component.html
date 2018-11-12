@@ -27,10 +27,9 @@
         <button class="form__submit botaoLogin" type="submit" [disabled]="form.invalid" (click)="signin()">Entrar</button>
         <div class="cadastro">
           <span>Não possui cadastro?</span>
-          <span><a routerLink="/signup">Cadastre-se</a></span>
+          <span><a [routerLink]="['signup']">Cadastre-se</a></span>
         </div>
       </div>
     </form>
   </div>
 </main>
-<router-outlet></router-outlet>

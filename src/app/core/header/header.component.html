@@ -1,14 +1,13 @@
 <header>
   <nav class="nav">
     <div class="nav__logo">
-      <a href="/"><img src="./assets/img/logo_header.png" alt="Avanade.social" /></a>
+      <a routerLink="/"><img src="./assets/img/logo_header.png" alt="Avanade.social" /></a>
     </div>
-    <div class="menu">
+    <div class="menu" *ngIf="user$ | async">
       <div class="menu__profile">
-        <img src="https://images.unsplash.com/photo-1541369497175-cd7224b96b34?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=b28e3c537df3662e86338cc274a26c35&auto=format&fit=crop&w=600&q=60"
-          alt="Profile Image">
+        <img [src]="(user$ | async).avatar" alt="Profile Image">
       </div>
-      <a [routerLink]="['profile']" class="menu__profileName">Cecelia</a>
+      <a [routerLink]="['profile']" class="menu__profileName">{{ getUserFirstName((user$ | async).name) }}</a>
       <a [routerLink]="['feed']" class="menu__item">Home</a>
       <a href="#" (click)="logout($event)" class="menu__item">Sair</a>
     </div>

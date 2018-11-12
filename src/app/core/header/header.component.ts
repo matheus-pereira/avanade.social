@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService } from '../user/user.service';
 import { Router } from '@angular/router';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-header',
@@ -8,6 +9,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent implements OnInit {
+  user$: Observable<User> = null;
 
   constructor(
     private userService: UserService,
@@ -15,6 +17,11 @@ export class HeaderComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+    this.user$ = this.userService.getUser();
+  }
+
+  getUserFirstName(userName:string ) {
+    return userName.split(' ')[0];
   }
 
   logout(e) {

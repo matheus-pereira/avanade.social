@@ -19,15 +19,14 @@ export class FeedComponent implements OnInit {
 
   onScroll() {
     const lastPost = this.posts[this.posts.length - 1];
-    this.postService.getPosts(lastPost.createdAt.toString())
+    this.postService.getPosts({ fromDate: lastPost.createdAt.toString() })
       .subscribe(posts => {
         if (!posts) {
           return this.hasMore = false;
         }
-        
+
         this.posts = this.posts.concat(posts)
       });
   }
-
 
 }

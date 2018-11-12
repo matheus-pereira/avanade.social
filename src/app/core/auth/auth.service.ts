@@ -27,21 +27,19 @@ export class AuthService {
       .pipe(tap(res => {
         const authToken = res.body['token'];
         this.userService.setToken(authToken);
-        console.log(`User ${email}  authenticated with token ${authToken}`);
       }));
   }
 
-  signUp(email: string, password: string, firstName: string, lastName: string) {
+  signUp(newUser: NewUser) {
     return this.http
       .post(
         `${API_URL}/users/register`,
-        { email, password, firstName, lastName },
+        newUser,
         { observe: 'response' }
       )
       .pipe(tap(res => {
         const authToken = res.body['token'];
         this.userService.setToken(authToken);
-        console.log(`User ${email}  authenticated with token ${authToken}`);
       }));
   }
 }
