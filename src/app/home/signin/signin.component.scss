@@ -1,7 +1,5 @@
 @import 'global_imports';
 //Importando componentes do Bootstrap
-@import 'buttons';
-@import 'forms';
 /**
 
 //Login
@@ -37,59 +35,15 @@
   }
 }
 
-.form {
-  width: 100%;
-  margin: auto;
-
-  &__fieldGroup {
-    @extend .form-group;
-  }
-
-  &__fieldInput {
-    @extend .form-control;
-  }
-
-  &__submit {
-    @extend .btn;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    font-size: 0.9em;
-    font-weight: bold;
-  }
-
-  &__submit:not(:disabled) {
-    @extend .btn-primary;
-    color: $white;
-
-  }
-
-  &__submit:disabled {
-    cursor: no-drop;
-  }
-
-  // Forçando classe de Bootstrap a sempre exibir mensagem de erro (exibição será controlada pelo Angular)
-  .invalid-feedback {
-    @extend .invalid-feedback;
-    display: block;
-  }
-
-  //Estilizando classes de controle do Angular
-  .ng-touched.ng-invalid {
-    @extend .is-invalid;
-  }
-
-  .ng-touched.ng-valid {
-    @extend .is-valid;
-  }
-}
-.botoesInf{
+footer {
   display: flex;
   flex-direction: row;
-  justify-content: space-between;  
+  justify-content: space-between;
 }
-.cadastro{
+
+.signUp__CTA {
   display: flex;
   flex-direction: column;
   align-items: center;
-  font-size: 10px;
+  font-size: em(10);
 }

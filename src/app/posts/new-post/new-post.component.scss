@@ -1,95 +1,35 @@
 @import 'global_imports';
 //Importando componentes do Bootstrap
-@import 'buttons';
-@import 'forms';
 /**
 
 //Login
 
 **/
 
-.authPage {
+.post__Form {
   display: flex;
   justify-content: center;
+  padding: ($grid-gutter-width / 2);
+  background-color: $white;
+  margin-bottom: ($grid-gutter-width / 2);
 
-  &__container {
-    background-color: #fff;
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    //Utilizando variável de grid gutter do Bootstrap
-    padding: ($grid-gutter-width / 2);
-
-    @include media-breakpoint-up(lg) {
-      padding: ($grid-gutter-width);
-    }
-  }
-
-  &__logo {
-    align-self: center;
-    max-width: 50%;
-    padding-bottom: ($grid-gutter-width / 2);
-
-    @include media-breakpoint-up(lg) {
-      max-width: 100%;
-      padding-bottom: ($grid-gutter-width);
-    }
-  }
 }
 
 .form {
-  width: 100%;
-  margin: auto;
-
-  &__fieldGroup {
-    @extend .form-group;
-  }
 
   &__fieldInput {
-    @extend .form-control;
+    border-color: $gray-500;
   }
 
-  &__submit {
-    @extend .btn;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    font-size: 0.9em;
-    font-weight: bold;
-  }
-
-  &__submit:not(:disabled) {
-    @extend .btn-primary;
-    color: $white;
-
-  }
-
-  &__submit:disabled {
-    cursor: no-drop;
-  }
-
-  // Forçando classe de Bootstrap a sempre exibir mensagem de erro (exibição será controlada pelo Angular)
-  .invalid-feedback {
-    @extend .invalid-feedback;
-    display: block;
+  .ng-invalid:focus[required],
+  .ng-valid:focus[required] {
+    border-color: $gray-500;
+    box-shadow: 0 0 0 0.2rem rgba($gray-500, 0.25);
   }
 
   //Estilizando classes de controle do Angular
-  .ng-touched.ng-invalid {
-    @extend .is-invalid;
+  .ng-touched.ng-invalid[required],
+  .ng-touched.ng-valid[required] {
+    border-color: $gray-500;
   }
-
-  .ng-touched.ng-valid {
-    @extend .is-valid;
-  }
-}
-.botoesInf{
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;  
-}
-.cadastro{
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  font-size: 10px;
 }

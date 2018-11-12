@@ -2,7 +2,7 @@
   <div class="authPage__container">
     <img class="authPage__logo" src="./assets/img/logo_login.png" />
     <form id="formSignIn" class="form" #form="ngForm">
-      <h1 class="form__title sr-only">Login</h1>
+      <h1 class="form__title">Acesse sua conta</h1>
       <div *ngIf="errorMessage" class="alert alert-danger">{{ errorMessage }}</div>
       <div class="form__fieldGroup">
         <label for="email">E-mail</label>
@@ -23,13 +23,13 @@
           Por favor preencha sua senha
         </span>
       </div>
-      <div class="botoesInf">
+      <footer>
         <button class="form__submit botaoLogin" type="submit" [disabled]="form.invalid" (click)="signin()">Entrar</button>
-        <div class="cadastro">
+        <div class="signUp__CTA">
           <span>Não possui cadastro?</span>
           <span><a [routerLink]="['signup']">Cadastre-se</a></span>
         </div>
-      </div>
+      </footer>
     </form>
   </div>
 </main>
