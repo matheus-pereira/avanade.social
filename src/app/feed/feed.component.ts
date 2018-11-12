@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Observable } from 'rxjs';
-import { FeedService } from './feed.service';
+import { PostService } from '../posts/post.service';
 
 @Component({
   selector: 'app-feed',
@@ -12,23 +11,23 @@ export class FeedComponent implements OnInit {
   posts: Post[];
   hasMore: boolean = true;
 
-  constructor(private feedService: FeedService) {
-    this.feedService.getPosts(5).subscribe(posts => {
-      this.posts = posts;
-    });
+  constructor(private postService: PostService) { }
+
+  ngOnInit() {
+    this.postService.getPosts().subscribe(posts => this.posts = posts);
   }
 
   onScroll() {
-    if (this.posts.length == 20) {
-      this.hasMore = false;
-      return;
-    }
-    this.feedService.getPosts(5).subscribe(posts => {
-      this.posts = this.posts.concat(posts);
-    });
+    const lastPost = this.posts[this.posts.length - 1];
+    this.postService.getPosts(lastPost.createdAt.toString())
+      .subscribe(posts => {
+        if (!posts) {
+          return this.hasMore = false;
+        }
+        
+        this.posts = this.posts.concat(posts)
+      });
   }
 
-  ngOnInit() {
-  }
 
 }

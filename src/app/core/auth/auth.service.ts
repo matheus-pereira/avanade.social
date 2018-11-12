@@ -20,7 +20,7 @@ export class AuthService {
   authenticate(email: string, password: string) {
     return this.http
       .post(
-        `${API_URL}/auth/login`,
+        `${API_URL}/users/login`,
         { email, password },
         { observe: 'response' }
       )

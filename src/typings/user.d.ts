@@ -1,5 +1,8 @@
 type User = {
     id: string;
-    name: string;
-    email: string;
+    firstName?: string;
+    lastName?: string;
+    fullName?: string;
+    avatar?: string;
+    email?: string;
 }

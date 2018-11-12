@@ -1,12 +1,16 @@
 type Post = {
     id: string;
-    timestamp: Date;
-    text: string;
-    imagePath: string;
-    likes: number;
-    liked: boolean;
     user: {
         id: string;
         name: string;
-    }
+    };
+    text: string;
+    imagePath: string;
+    likes: [
+        {
+            id: string;
+            name: string;
+        }
+    ];
+    createdAt: Date;
 }
