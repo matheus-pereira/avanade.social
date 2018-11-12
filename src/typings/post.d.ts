@@ -3,6 +3,7 @@ type Post = {
     user: {
         id: string;
         name: string;
+        avatar?: string;
     };
     text: string;
     imagePath: string;
