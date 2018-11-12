@@ -1,0 +1,3 @@
+<section *ngFor="let post of posts">
+  <app-post [post]="post" (like)="onLikeClick($event)"></app-post>
+</section>

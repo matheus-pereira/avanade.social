@@ -1,0 +1,35 @@
+@import 'global_imports';
+//Importando componentes do Bootstrap
+/**
+
+//Login
+
+**/
+
+.post__Form {
+  display: flex;
+  justify-content: center;
+  padding: ($grid-gutter-width / 2);
+  background-color: $white;
+  margin-bottom: ($grid-gutter-width / 2);
+
+}
+
+.form {
+
+  &__fieldInput {
+    border-color: $gray-500;
+  }
+
+  .ng-invalid:focus[required],
+  .ng-valid:focus[required] {
+    border-color: $gray-500;
+    box-shadow: 0 0 0 0.2rem rgba($gray-500, 0.25);
+  }
+
+  //Estilizando classes de controle do Angular
+  .ng-touched.ng-invalid[required],
+  .ng-touched.ng-valid[required] {
+    border-color: $gray-500;
+  }
+}

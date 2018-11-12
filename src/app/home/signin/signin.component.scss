@@ -1,0 +1,49 @@
+@import 'global_imports';
+//Importando componentes do Bootstrap
+/**
+
+//Login
+
+**/
+
+.authPage {
+  display: flex;
+  justify-content: center;
+
+  &__container {
+    background-color: #fff;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    //Utilizando variável de grid gutter do Bootstrap
+    padding: ($grid-gutter-width / 2);
+
+    @include media-breakpoint-up(lg) {
+      padding: ($grid-gutter-width);
+    }
+  }
+
+  &__logo {
+    align-self: center;
+    max-width: 50%;
+    padding-bottom: ($grid-gutter-width / 2);
+
+    @include media-breakpoint-up(lg) {
+      max-width: 100%;
+      padding-bottom: ($grid-gutter-width);
+    }
+  }
+}
+
+footer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.signUp__CTA {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: em(10);
+}

@@ -1,0 +1,14 @@
+<main class="profile">
+  <section class="profile__userCard" *ngIf="user">
+    <div class="profile__userImg">
+      <img alt="Avatar" [src]="user.avatar"/>
+    </div>
+    <div class="profile__userDesc">
+      <p class="profile__userName">{{ user.name ? user.name : user.fullName }}</p>
+      <p class="profile__userEmail">{{ user.email }}</p>
+    </div>
+  </section>
+  <section id="profile__postList" [infiniteScrollDisabled]="!hasMore" infiniteScroll (scrolled)="onScroll()">
+    <app-post-list [posts]="posts"></app-post-list>
+  </section>
+</main>

@@ -1,0 +1,35 @@
+<main class="authPage">
+  <div class="authPage__container">
+    <img class="authPage__logo" src="./assets/img/logo_login.png" />
+    <form id="formSignIn" class="form" #form="ngForm">
+      <h1 class="form__title">Acesse sua conta</h1>
+      <div *ngIf="errorMessage" class="alert alert-danger">{{ errorMessage }}</div>
+      <div class="form__fieldGroup">
+        <label for="email">E-mail</label>
+        <input class="form__fieldInput" type="email" name="email" id="email" [(ngModel)]="user.email" minlength="5"
+          #email="ngModel" email required />
+        <span class="invalid-feedback" *ngIf="email?.errors?.required && email?.touched">
+          Por favor preencha seu e-mail cadastrado
+        </span>
+        <span class="invalid-feedback" *ngIf="email?.errors?.email && email?.touched">
+          Por favor informe seu e-mail no formato seuemail@exemplo.com.br
+        </span>
+      </div>
+      <div class="form__fieldGroup">
+        <label for="password">Senha</label>
+        <input class="form__fieldInput" type="password" name="password" id="password" [(ngModel)]="user.password"
+          minlength="5" #password="ngModel" required />
+        <span class="invalid-feedback" *ngIf="password?.errors?.required && password?.touched">
+          Por favor preencha sua senha
+        </span>
+      </div>
+      <footer>
+        <button class="form__submit botaoLogin" type="submit" [disabled]="form.invalid" (click)="signin()">Entrar</button>
+        <div class="signUp__CTA">
+          <span>Não possui cadastro?</span>
+          <span><a [routerLink]="['signup']">Cadastre-se</a></span>
+        </div>
+      </footer>
+    </form>
+  </div>
+</main>

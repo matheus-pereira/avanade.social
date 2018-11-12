@@ -1,0 +1,9 @@
+<section class="post__Form">
+  <form class="form" #form="ngForm">
+    <div class="form__fieldGroup">
+      <textarea placeholder="Compartilhe uma novidade" name="text" id="text" class="form__fieldInput" rows="3"
+        [(ngModel)]="text" required></textarea>
+    </div>
+    <button class="form__submit" type="submit" [disabled]="form.invalid" (click)="onPost()">Publicar</button>
+  </form>
+</section>

@@ -1,0 +1,51 @@
+@import 'global_imports';
+
+.profile {
+  background: $white;
+
+  p {
+    margin: 0;
+    padding: 0;
+  }
+
+  &__userCard {
+    display: flex;
+    padding: ($grid-gutter-width / 2);
+    justify-items: center;
+    align-items: center;
+    border-bottom: 1px solid $gray-400;
+  }
+
+  &__userImg {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin-right: ($grid-gutter-width / 2);
+
+    @include media-breakpoint-up(lg) {
+      width: 100px;
+      height: 100px;
+    }
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+
+  &__userName {
+    font-size: em(22);
+    align-self: flex-start;
+
+    @include media-breakpoint-up(lg) {
+      font-size: em(28);
+    }
+  }
+
+  &__userEmail {
+    color: $gray-500;
+  }
+
+}

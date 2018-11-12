@@ -1,0 +1,15 @@
+<header>
+  <nav class="nav">
+    <div class="nav__logo">
+      <a routerLink="/"><img src="./assets/img/logo_header.png" alt="Avanade.social" /></a>
+    </div>
+    <div class="menu" *ngIf="user$ | async">
+      <div class="menu__profile">
+        <img [src]="(user$ | async).avatar" alt="Profile Image">
+      </div>
+      <a [routerLink]="['profile']" class="menu__profileName">{{ getUserFirstName((user$ | async).name) }}</a>
+      <a [routerLink]="['feed']" class="menu__item">Home</a>
+      <a href="#" (click)="logout($event)" class="menu__item">Sair</a>
+    </div>
+  </nav>
+</header>

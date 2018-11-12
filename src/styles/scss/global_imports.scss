@@ -1,0 +1,10 @@
+//Importando variáveis e funções do projeto
+//Imports de variáveis e mixins de bootstrap estão inseridos nos arquivos respectivos
+@import "_global_functions",
+"_global_variables",
+"_global_mixins";
+
+//Importando variáveis, funções e mixins do Bootstrap
+@import "functions",
+"variables",
+"mixins";
