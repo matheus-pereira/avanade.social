@@ -1,6 +1,10 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { FeedComponent } from './feed.component';
+import { RouterTestingModule } from '@angular/router/testing';
+import { InfiniteScrollModule } from 'ngx-infinite-scroll';
+import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 
 describe('FeedComponent', () => {
   let component: FeedComponent;
@@ -8,9 +12,15 @@ describe('FeedComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ FeedComponent ]
+      imports: [
+        RouterTestingModule,
+        InfiniteScrollModule,
+        HttpClientTestingModule
+      ],
+      declarations: [FeedComponent],
+      schemas: [CUSTOM_ELEMENTS_SCHEMA]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {
