@@ -30,4 +30,5 @@ $ ng serve
 ## API
 
 You can find the API documentation at https://avanade-social.herokuapp.com/api/docs/
+
 Or clone the repository at https://github.com/matheus-pereira/api.avanade.social
