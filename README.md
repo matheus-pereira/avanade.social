@@ -1,5 +1,7 @@
 # avanade.social
 
+https://avanade.social
+
 ## Description
 
 Estudo de caso para Avanade Academy
@@ -27,4 +29,6 @@ $ ng serve
 
 ## API
 
-You can find the API documentation at https://github.com/matheus-pereira/api.avanade.social
+You can find the API documentation at https://avanade-social.herokuapp.com/api/docs/
+
+Or clone the repository at https://github.com/matheus-pereira/api.avanade.social
