@@ -3,10 +3,12 @@
     <section class="row">
       <div class="post__profile col-md-12">
         <div class="post__profileImg">
-          <img [src]="post.user.avatar">
+          <a [routerLink]="['', 'profile', post.user.id]">
+            <img [src]="post.user.avatar">
+          </a>
         </div>
         <div class="post__profileRight">
-          <a href="/profile/{{ post.user.id }}" class="post__profileName">{{post.user.name }}</a>
+          <a [routerLink]="['', 'profile', post.user.id]" class="post__profileName">{{post.user.name }}</a>
           <small class="post__timePosted">{{ post.createdAt | date:'dd MMMM yyyy - hh:mm' }}</small>
         </div>
       </div>

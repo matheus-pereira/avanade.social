@@ -5,7 +5,9 @@
     </div>
     <div class="menu" *ngIf="user$ | async">
       <div class="menu__profile">
-        <img [src]="(user$ | async).avatar" alt="Profile Image">
+        <a [routerLink]="['', 'profile']">
+          <img [src]="(user$ | async).avatar" alt="Profile Image">
+        </a>
       </div>
       <a [routerLink]="['profile']" class="menu__profileName">{{ getUserFirstName((user$ | async).name) }}</a>
       <a [routerLink]="['feed']" class="menu__item">Home</a>
